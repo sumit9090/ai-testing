@@ -20,10 +20,23 @@ jobs:
       # 3️⃣ Install dependencies
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install langchain-openai python-dotenv
 
-      # 4️⃣ Run your script with secret injected
-      - name: Run Test Case Generator Script
+      # 4️⃣ Confirm OPENAI_API_KEY is set
+      - name: Check OPENAI_API_KEY
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "❌ OPENAI_API_KEY is not set!"
+            exit 1
+          else
+            echo "✅ OPENAI_API_KEY is set"
+          fi
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      # 5️⃣ Run your script
+      - name: Run Test Case Generator Script
         run: python ChatModels/chatmodel_openAI_login_automation.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
