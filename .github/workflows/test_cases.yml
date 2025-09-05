@@ -26,4 +26,4 @@ jobs:
       - name: Run Test Case Generator Script
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python chatmodel_openAI_login_automation.py
+        run: python ChatModels/chatmodel_openAI_login_automation.py
