@@ -18,7 +18,7 @@ if not api_key:
 # print("OpenAI connectivity test:", resp.status_code, resp.text)
 
 # Connect LLM
-openai_llm = ChatOpenAI(model="gpt-4", api_key=api_key)
+openai_llm = ChatOpenAI(model="gpt-4")
 
 def generate_test_cases(feature: str):
     query = f"""
