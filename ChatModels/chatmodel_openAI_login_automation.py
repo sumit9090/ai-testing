@@ -12,10 +12,10 @@ api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
     raise ValueError("❌ OPENAI_API_KEY not found!")
 
-# ✅ Test connectivity to OpenAI
-headers = {"Authorization": f"Bearer {api_key}"}
-resp = requests.get("https://api.openai.com/v1/models", headers=headers)
-print("OpenAI connectivity test:", resp.status_code, resp.text)
+# # ✅ Test connectivity to OpenAI
+# headers = {"Authorization": f"Bearer {api_key}"}
+# resp = requests.get("https://api.openai.com/v1/models", headers=headers)
+# print("OpenAI connectivity test:", resp.status_code, resp.text)
 
 # Connect LLM
 openai_llm = ChatOpenAI(model="gpt-4", api_key=api_key)
